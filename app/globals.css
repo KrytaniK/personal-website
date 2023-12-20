@@ -1,27 +1,156 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --accent-blue-hex: #0047FF;
+  --accent-blue-rgb: 0, 71, 255;
+  --accent-red-hex: #FF007A;
+  --accent-red-rgb: 255, 0, 122;
+
+  --primary-light-hex: #EDEDED;
+  --primary-light-rgb: 237, 237, 237;
+  --secondary-light-hex: #A0A0A0;
+  --secondary-light-rgb: 160, 160, 160;
+  --accent-light-hex: #FF9900;
+  --accent-light-rgb: 255, 153, 0;
+  --text-light-hex: #171717;
+  --text-light-rgb: 23, 23, 23;
+
+  --primary-dark-hex: #171717;
+  --primary-dark-rgb: 23, 23, 23;
+  --secondary-dark-hex: #333333;
+  --secondary-dark-rgb: 51, 51, 51;
+  --accent-dark-hex: #00FFFF;
+  --accent-dark-rgb: 0, 255, 255;
+  --text-dark-hex: #EDEDED;
+  --text-dark-rgb: 237, 237, 237;
+
+  --font-family: 'League Spartan', sans-serif;
+  --font-size: 16px;
+  --font-size-max: 40px;
+  --font-size-min: 10px;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+html, body {
+  height: 100%;
+  line-height: 1.25rem;
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  --body-margin: 4px;
+  --page-width: calc(100% - calc(var(--body-margin) * 2));
+  --page-height: calc(100% - calc(var(--body-margin) * 2));
+  margin: var(--body-margin);
+  max-height: calc(100% - calc(var(--body-margin) * 2));
+  font-family: var(--font-family);
+  font-size: var(--font-size);
+  border-radius: 0.5rem;
+  box-sizing: border-box;
+  background-color: var(--primary-dark-hex);
+}
+
+body::before {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom right, var(--accent-blue-hex), var(--accent-red-hex));
+  border-radius: 0.5rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  padding: 0;
+  width: max-content;
+}
+
+h1 {
+  font-size: var(--font-size-max);
+}
+
+h2 {
+  font-size: 28px;
+}
+
+h3 {
+  font-size: 24px;
+}
+
+h4 {
+  font-size: 20px;
+}
+
+h5 {
+  font-size: 16px;
+}
+
+h6 {
+  font-size: 12px;
+}
+
+p, div, span {
+  font-size: 1rem;
+  margin: 0;
+}
+
+button, a {
+  transition: all .25s ease-in-out;
+}
+
+button {
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 500;
+
+  background: none;
+  border: none;
+  color: inherit;
+  
+  padding: 8px 16px 4px;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.text-body-l {
+  font-size: 1.5rem;
+}
+
+.text-body-m {
+  font-size: 1.25rem;
+}
+
+.text-body-s {
+  font-size: 1rem;
+}
+
+.subtext-l {
+  font-size: 0.875;
+}
+
+.subtext-m {
+  font-size: 0.75rem;
+}
+
+.subtext-s {
+  font-size: max(var(--font-size-min), 0.625rem);
+}
+
+@media (prefers-color-scheme: dark) {
+  html, body {
+    background-color: var(--primary-dark-hex);
+    color: var(--text-dark-hex);
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  html, body {
+    background-color: var(--primary-light-hex);
+    color: var(--text-light-hex);
+  }
 }

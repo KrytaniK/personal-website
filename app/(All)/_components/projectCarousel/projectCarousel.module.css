@@ -1,0 +1,101 @@
+.projectNavBtnLeft, .projectNavBtnRight {
+    width: 2rem;
+    height: 2rem;
+    position: absolute;
+    top: 50%;
+    background-color: var(--text-dark-hex);
+
+    transition: all .25s ease-in-out;
+}
+
+.projectNavBtnLeft {
+    left: 2rem;
+}
+
+.projectNavBtnRight {
+    right: 2rem;
+}
+
+.projectInfo {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+
+    max-width: 900px;
+    
+    transform-origin: center;
+    transform: translate(-50%, -50%);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 2rem;
+}
+
+.projectDesc {
+    opacity: 50%;
+    font-size: 1.25rem;
+}
+
+.projectLinks {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+.githubLink, .demoLink {
+    font-weight: 400;
+    padding: 8px 16px 4px;
+    border-radius: 0.25rem;
+    border: 2px solid transparent;
+}
+
+.demoLink {
+    color: var(--accent-dark-hex);
+    border: 2px solid var(--accent-dark-hex);
+}
+
+.projectIndicators {
+    position: absolute;
+    left: 50%;
+    bottom: 32px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+
+    transform: translateX(-50%);
+}
+
+.indicator, .activeIndicator {
+    width: 1.5rem;
+    height: 0.5rem;
+    border-radius: 1rem;
+}
+
+.indicator {
+    background-color: var(--secondary-dark-hex);
+}
+
+.activeIndicator {
+    background-color: var(--accent-dark-hex);
+}
+
+@media (hover: hover) {
+    .githubLink:hover {
+        border: 2px solid var(--text-dark-hex);
+    }
+
+    .demoLink:hover {
+        background-color: var(--accent-dark-hex);
+        color: var(--text-light-hex);
+    }
+
+    .projectNavBtnLeft:hover, .projectNavBtnRight:hover {
+        cursor: pointer;
+        background-color: var(--secondary-dark-hex);
+    }
+}
