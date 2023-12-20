@@ -1,0 +1,41 @@
+.nav {
+    box-sizing: border-box;
+
+    width: 100%;
+    min-height: 64px;
+
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: auto;
+
+    padding: 0px 32px;
+}
+
+.nav > * {
+    width: 100%;
+}
+
+.logo {
+    width: max-content;
+}
+
+.links
+{
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4rem;
+}
+
+.disabledLink {
+    pointer-events: none;
+    cursor: default;
+    opacity: 25%;
+}
