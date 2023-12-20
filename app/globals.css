@@ -32,12 +32,32 @@
 
 html, body {
   height: 100%;
+  line-height: 1.25rem;
 }
 
 body {
-  margin: 0;
+  --body-margin: 4px;
+  --page-width: calc(100% - calc(var(--body-margin) * 2));
+  --page-height: calc(100% - calc(var(--body-margin) * 2));
+  margin: var(--body-margin);
+  max-height: calc(100% - calc(var(--body-margin) * 2));
   font-family: var(--font-family);
   font-size: var(--font-size);
+  border-radius: 0.5rem;
+  box-sizing: border-box;
+  background-color: var(--primary-dark-hex);
+}
+
+body::before {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom right, var(--accent-blue-hex), var(--accent-red-hex));
+  border-radius: 0.5rem;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -72,6 +92,11 @@ h6 {
 
 p, div, span {
   font-size: 1rem;
+  margin: 0;
+}
+
+button, a {
+  transition: all .25s ease-in-out;
 }
 
 button {
@@ -83,7 +108,7 @@ button {
   border: none;
   color: inherit;
   
-  padding: 8px 16px;
+  padding: 8px 16px 4px;
   margin: 0;
 }
 

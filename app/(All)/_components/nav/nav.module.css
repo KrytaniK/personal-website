@@ -1,13 +1,12 @@
 .nav {
     box-sizing: border-box;
 
-    width: 100%;
-    min-height: 64px;
+    width: var(--page-width);
+    min-height: 80px;
 
     position: absolute;
-    left: 50%;
-    top: 0;
-    transform: translateX(-50%);
+    left: var(--body-margin);
+    top: var(--body-margin);
 
     display: flex;
     justify-content: center;
@@ -32,6 +31,15 @@
     align-items: center;
     justify-content: center;
     gap: 4rem;
+}
+
+.link {
+    border-bottom: 2px solid transparent;
+    padding: 8px 16px;
+}
+
+.active {
+    color: var(--accent-dark-hex);
 }
 
 .disabledLink {
