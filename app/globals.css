@@ -63,7 +63,7 @@ body::before {
 h1, h2, h3, h4, h5, h6 {
   margin: 0;
   padding: 0;
-  width: max-content;
+  line-height: 2.5rem;
 }
 
 h1 {

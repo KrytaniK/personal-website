@@ -1,10 +1,13 @@
 "use client";
 
 import Link from "next/link";
-import styles from "./nav.module.css";
+import { useState } from "react";
 import { usePathname } from "next/navigation";
+import styles from "./nav.module.css";
 
 export default function Nav() {
+  const [collapsed, setCollapsed] = useState(false);
+
   const pathname = usePathname();
 
   return (
@@ -12,33 +15,49 @@ export default function Nav() {
       <span>
         <h3>KrytaniK</h3>
       </span>
-      <span className={styles.links}>
-        <Link
-          className={`${styles.link} ${styles.disabledLink} ${
-            pathname === "/blog" ? styles.active : ""
-          }`}
-          href={"/blog"}
+      <div className={styles.hamburgerWrapper}>
+        <div
+          className={`${styles.hamburger} ${collapsed ? styles.collapsed : ""}`}
+          onClick={() => {
+            setCollapsed((prev) => !prev);
+          }}
         >
-          Blog
-        </Link>
-        <Link
-          className={`${styles.link} ${
-            pathname === "/projects" ? styles.active : ""
-          }`}
-          href={"/projects"}
+          <span></span>
+          <span></span>
+        </div>
+        <span
+          className={`${styles.links} ${collapsed ? "" : styles.collapsed}`}
+          onClick={() => {
+            setCollapsed((prev) => !prev);
+          }}
         >
-          Portfolio
-        </Link>
-        <Link
-          className={`${styles.link} ${styles.disabledLink} ${
-            pathname === "/" ? styles.active : ""
-          }`}
-          href={"/"}
-        >
-          Home
-        </Link>
-      </span>
-      <span></span>
+          <Link
+            className={`${styles.link} ${styles.disabledLink} ${
+              pathname === "/blog" ? styles.active : ""
+            }`}
+            href={"/blog"}
+          >
+            Blog
+          </Link>
+          <Link
+            className={`${styles.link} ${
+              pathname === "/projects" ? styles.active : ""
+            }`}
+            href={"/projects"}
+          >
+            Portfolio
+          </Link>
+          <Link
+            className={`${styles.link} ${styles.disabledLink} ${
+              pathname === "/" ? styles.active : ""
+            }`}
+            href={"/"}
+          >
+            Home
+          </Link>
+        </span>
+      </div>
+      <span className={styles.empty}></span>
     </nav>
   );
 }
